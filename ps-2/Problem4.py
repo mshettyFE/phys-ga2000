@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 import numpy as np
 
-resolution = 10000
+resolution = 1000
 iterations = 10
 diverging_criterion = 2
 re_min = -2
@@ -27,5 +27,14 @@ def man_plot():
 
 if __name__=="__main__":
     x,y, state = man_plot()
-    plt.imshow(state)
+    fig, ax = plt.subplots()
+    ax.imshow(state)
+    ax.set_xlabel("Real")
+    ax.set_ylabel("Imaginary")
+# I did use ChatGPT to figure out what incantation to chant in order to properly change the axis labels
+# Googling wasn't as helpful...
+    ax.set_xticks([0,resolution])
+    ax.set_xticklabels(['-2', '2'])
+    ax.set_yticks([0,resolution])
+    ax.set_yticklabels(['-2', '2'])
     plt.show()

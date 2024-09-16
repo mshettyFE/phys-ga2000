@@ -35,4 +35,8 @@ if __name__ == "__main__":
     print("\nPart b\n")
     print("Left {l}".format(l=left))
     print("Right {r}".format(r=right))
+    left, right = quadratic(a,b,c)
+    print("\nPart b\n")
+    print("Left {l}".format(l=left))
+    print("Right {r}".format(r=right))
 
