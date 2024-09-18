@@ -1,3 +1,4 @@
 /ps-1/env
 *.png
 /ps-2/__pycache__/*
+*.csv
