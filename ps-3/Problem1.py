@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import time
 
 Iters = 20
@@ -44,19 +45,23 @@ def dotMatMul(NumIters):
         time_taken.append(t2-t1)
     return Matrix_size, time_taken
  
-def crappyCSVGeneration(left, right, fname):
-    assert(len(left) == len(right))
-    with open(fname+".csv", 'w') as f:
-        for i in range(len(left)):
-            f.write(str(left[i]))
-            f.write(",")
-            f.write(str(right[i]))
-            f.write("\n")
-
 if __name__ == "__main__":
     size, t = explicitMatMul(Iters)
-    crappyCSVGeneration(size, t, "Explicit")
     size_dot, t_dot = dotMatMul(Iters)
-    crappyCSVGeneration(size_dot, t_dot, "Dot")
-
-
+    fig, (ax1, ax2) = plt.subplots(1,2, sharey=True)
+    ax1.plot(size,t, color = 'b')
+    ax1.set_title("Standard")
+    ax1.set_xlabel("Mat Size")
+    ax1.set_ylabel("Time (s)")
+    ax1.set_yscale("log")
+    ax1.set_xscale("log")
+    
+    ax2.plot(size_dot,t_dot)
+    ax2.set_title("Dot")
+    ax2.set_xlabel("Mat Size")
+    ax2.set_ylabel("Time (s)")
+    ax2.set_yscale("log")
+    ax2.set_xscale("log")
+    
+    fig.tight_layout()
+    plt.show()
