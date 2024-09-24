@@ -69,5 +69,8 @@ if __name__ == "__main__":
     plt.plot(time, stable, label = "Stable Bi")
 #    plt.yscale('log')
     plt.xscale('log')
+    plt.xlabel("Time (s)")
+    plt.ylabel("Count")
+    plt.title("Atom Count Vs. Time")
     plt.legend()
     plt.show()

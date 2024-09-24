@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-N = 400
-samples = 10000
+N = 2000
+samples = 1000
 
 def gen_y(N):
     assert(N >=1)
@@ -33,6 +33,8 @@ def moment_calculations(N_max, samples):
 
 if __name__ == "__main__":
     plot_gaussian(N, samples)
+    plt.clf()
+    print("Calculating moments...")
     n, mu, sigma, skew, kurt = moment_calculations(N, samples)
     fig, axs  = plt.subplots(2,2)
     axs[0,0].plot(n, mu)
@@ -40,7 +42,7 @@ if __name__ == "__main__":
     axs[0,0].set_xlabel("N")
 
     axs[0,1].plot(n, sigma)
-    axs[0,1].set_title("Sigma")
+    axs[0,1].set_title("Variance")
     axs[0,1].set_xlabel("N")
     
     axs[1,0].plot(n, skew)
@@ -54,4 +56,4 @@ if __name__ == "__main__":
     axs[1,1].axhline(y = kurt[0]*0.01, color = 'r')
     
     fig.tight_layout()
-    plt.show()
+    plt.savefig("Distributions.png")
