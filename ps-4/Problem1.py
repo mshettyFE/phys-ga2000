@@ -8,7 +8,7 @@ AlDebyeTemp = 428
 Volume  = (1000) / (1E6)
 
 # number density (atoms/m^3)
-Rho  = 6.022E28
+Rho  = 6.022E26
 
 # J/K
 kb = 1.380649E-23
@@ -40,6 +40,9 @@ def genCvPlot(N):
     temps = np.linspace(5,500,100)
     values = np.array([cv(t, N) for t in temps])
     plt.plot(temps, values)
+    plt.xlabel("Temp (K)")
+    plt.ylabel("J/K")
+    plt.title("Specific Heat Vs Temp")
     plt.savefig("SpecificHeatPlot.png")
 
 def convergence():
@@ -49,7 +52,10 @@ def convergence():
     for t in target_temps:
         values = [cv(t,n) for n in N]
         plt.plot(N, values)
-    plt.yscale("log")
+#    plt.yscale("log")
+    plt.xlabel("N")
+    plt.ylabel("J/K")
+    plt.title("Convergence Plot at T=5k")
     plt.savefig("ConvergenceProb1.png")
 
 if __name__ == "__main__":
