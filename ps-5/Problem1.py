@@ -20,7 +20,7 @@ def f_prime(x):
     return np.power(np.cosh(2*x),-2)
 
 if __name__== "__main__":
-    x = np.linspace(0,100,1000)
+    x = np.linspace(-10,10,2000)
     numerical = central_diff(f, x, h)
     analytical = f_prime(x)
     jax_der = grad(jax_f)
