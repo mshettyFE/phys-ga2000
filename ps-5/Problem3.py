@@ -46,6 +46,7 @@ def SVDPoly(time, signal, dim):
     ainv = vt.transpose().dot(np.diag(1. / w)).dot(u.transpose())
     x = ainv.dot(signal)
     fit = A.dot(x)
+    print("Poly Cond {num}".format(num=condition_number))
 
     plt.clf()
     fig, axs = plt.subplots(2,1)
@@ -54,7 +55,9 @@ def SVDPoly(time, signal, dim):
     cur_title = str("Condition Number {num}".format(num=condition_number))
     axs[0].set_title(cur_title)
     axs[1].scatter(t,signal-fit)
+    axs[1].set_title("Residuals")
     cur_title = "PolySVD_{num}.png".format(num=dim)
+    plt.tight_layout()
     plt.savefig(cur_title)
 
 def SVDFourier(time, signal, dim):
@@ -64,6 +67,8 @@ def SVDFourier(time, signal, dim):
     ainv = vt.transpose().dot(np.diag(1. / w)).dot(u.transpose())
     x = ainv.dot(signal)
     fit = A.dot(x)
+    condition_number = np.max(w)/np.min(w)
+    print("Fourier Cond {num}".format(num=condition_number))
 
     plt.clf()
     fig, axs = plt.subplots(2,1)
@@ -71,7 +76,9 @@ def SVDFourier(time, signal, dim):
     axs[0].scatter(t,fit)
     axs[0].set_title("Fourier Decomposition")
     axs[1].scatter(t,signal-fit)
+    axs[1].set_title("Residuals")
     cur_title = "FourierSVD_{num}.png".format(num=dim)
+    plt.tight_layout()
     plt.savefig(cur_title)
 
 

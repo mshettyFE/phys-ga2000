@@ -27,6 +27,9 @@ def PartA():
     plt.plot(x, two, label="a=2")
     plt.plot(x, three, label="a=3")
     plt.plot(x, four, label="a=4")
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.title("integrand of Gamma")
     plt.legend()
     plt.savefig("Prob2PartA.png")
 
