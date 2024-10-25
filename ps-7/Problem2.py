@@ -55,9 +55,9 @@ def brent(f, a, c, max_iters = 5000, tol =1E-4):
 
 def f(x):
     return np.power(x-0.3,2)*np.exp(x)
-#    return np.power(x-0.3,2)
-
 
 if __name__ == "__main__":
-    print(brent(f, 0,1))
-    print(sp_brent(f,brack=(0,1)))
+    a = brent(f, 0,1)
+    b = sp_brent(f,brack=(0,1))
+    c = np.abs(b-a)
+    print(a,b,c)
