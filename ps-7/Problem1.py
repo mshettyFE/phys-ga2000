@@ -27,7 +27,8 @@ def Newton(initial, func, func_prime, m_prime, iters = 100):
     return r_prime[0]
 
 if __name__ == "__main__":
-    print(EARTH_MOON_DIST*Newton(10,f, f_prime, MOON_MASS/EARTH_MASS))
-    print(SUN_EARTH_DIST*Newton(10,f, f_prime, EARTH_MASS/SUN_MASS))
-    print(EARTH_MOON_DIST*Newton(10,f, f_prime, JUPITER_MASS/SUN_MASS))
+    print("Distances in meters")
+    print("EARTH_MOON",EARTH_MOON_DIST*Newton(10,f, f_prime, MOON_MASS/EARTH_MASS))
+    print("SUN_EARTH",SUN_EARTH_DIST*Newton(10,f, f_prime, EARTH_MASS/SUN_MASS))
+    print("SUN_JUPITERLIKE",SUN_EARTH_DIST*Newton(10,f, f_prime, JUPITER_MASS/SUN_MASS))
 
