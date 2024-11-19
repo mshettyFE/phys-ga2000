@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 
 def plot_data(data):
     plt.plot(data)
+    plt.xlabel("Time")
+    plt.ylabel("Stock")
+    plt.title("Dow")
     plt.savefig("Dow.png")
     plt.clf()
 
@@ -16,6 +19,9 @@ def plot_filtered_data(data, filtered, title):
     plt.plot(data, color='r' , label="Original")
     plt.plot(filtered, color='b', label="Filtered")
     plt.legend()
+    plt.xlabel("Time")
+    plt.ylabel("Stock")
+    plt.title("Filtered Data")
     plt.savefig(title+".png")
     plt.clf()
 
